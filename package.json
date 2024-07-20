@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "type-check": "turbo type-check",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "docker:mysql": "docker-compose -f ./docker/mysql/docker-compose.yml up -d",
+    "clean": "node ./scripts/clean.js"
+  },
+  "devDependencies": {
+    "@shared/eslint-config": "workspace:*",
+    "@shared/typescript-config": "workspace:*",
+    "prettier": "^3.2.5",
+    "turbo": "^2.0.3"
+  },
+  "packageManager": "pnpm@8.15.5",
+  "engines": {
+    "node": ">=18"
+  },
+  "name": "with-typeorm"
+}
