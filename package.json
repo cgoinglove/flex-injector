@@ -7,6 +7,7 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "type-check": "turbo type-check",
+    "prepare": "husky install",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "docker:mysql": "docker-compose -f ./docker/mysql/docker-compose.yml up -d",
     "clean": "node ./scripts/clean.js"
@@ -15,11 +16,19 @@
     "@shared/eslint-config": "workspace:*",
     "@shared/typescript-config": "workspace:*",
     "prettier": "^3.2.5",
-    "turbo": "^2.0.3"
+    "turbo": "^2.0.3",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.0"
   },
   "packageManager": "pnpm@8.15.5",
   "engines": {
     "node": ">=18"
   },
-  "name": "root"
+  "name": "root",
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "prettier --write",
+      "eslint --max-warnings 0"
+    ]
+  }
 }
