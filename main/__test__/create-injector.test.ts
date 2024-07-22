@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { createInjector } from '../src';
+import { createInjector } from '../src/create-injector';
 
 describe('createInjector Tests', () => {
   const { inject, InjectAble } = createInjector();

@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "strict": false,
+    "noEmit": false,
+    "declaration": false,
+    "declarationMap": false,
+    "allowImportingTsExtensions": false
+  },
+  "include": ["src"]
+}

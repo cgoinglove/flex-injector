@@ -1,5 +1,0 @@
-{
-  "extends": "@shared/typescript-config/service.json",
-  "include": ["src", "__test__", "vitest.config.ts"],
-  "exclude": ["node_modules"]
-}

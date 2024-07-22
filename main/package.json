@@ -1,12 +1,24 @@
 {
-  "name": "di-container",
-  "version": "0.0.0",
-  "private": true,
+  "name": "ts-dependency-injector",
+  "private": false,
+  "version": "0.0.1",
+  "description": "",
+  "author": "Cgoing",
+  "license": "MIT",
+  "sideEffects": false,
+  "readme": "../README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cgoinglove/ts-dependency-injector"
+  },
+  "tags": [
+    "typescript"
+  ],
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js",
-      "types": "./dist/cjs/index.d.ts"
+      "types": "./dist/types/index.d.ts"
     },
     "./package.json": "./package.json"
   },
@@ -21,7 +33,8 @@
     "type-check": "tsc --noEmit",
     "build:cjs": "tsc --project tsconfig.cjs.json",
     "build:esm": "tsc --project tsconfig.esm.json",
-    "build": "npm run build:cjs && npm run build:esm"
+    "build:types": "tsc --project tsconfig.types.json",
+    "build": "npm run build:cjs && npm run build:esm && npm run build:types "
   },
   "peerDependencies": {
     "reflect-metadata": "^0.1.13"

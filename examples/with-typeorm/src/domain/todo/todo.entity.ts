@@ -1,13 +1,7 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity({
-  name: "todo",
+  name: 'todo',
 })
 export class Todo {
   @PrimaryGeneratedColumn()
@@ -15,7 +9,7 @@ export class Todo {
 
   @Column({
     nullable: false,
-    comment: "내용",
+    comment: '내용',
     length: 100,
   })
   content: string;

@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build": "turbo build",
+    "build": "turbo -F ts-dependency-injector build",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "type-check": "turbo type-check",
@@ -19,5 +19,5 @@
   "engines": {
     "node": ">=18"
   },
-  "name": "with-typeorm"
+  "name": "root"
 }
