@@ -76,15 +76,15 @@ importers:
 
   examples/with-typeorm:
     dependencies:
+      flex-injector:
+        specifier: workspace:*
+        version: link:../../main
       mysql2:
         specifier: ^3.9.7
         version: 3.10.3
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
-      ts-dependency-injector:
-        specifier: workspace:*
-        version: link:../../main
       typeorm:
         specifier: ^0.3.20
         version: 0.3.20(mysql2@3.10.3)

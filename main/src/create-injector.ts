@@ -3,8 +3,8 @@ import { randomUUID } from 'crypto';
 
 type Class<T = any> = { new (...args: any[]): T };
 
-export const createInjector = (name: string = randomUUID()) => {
-  const Container = reflectFactory(`dependency-container-${name}`);
+export const createInjector = (name = '') => {
+  const Container = reflectFactory(`dependency-container-${name}-${randomUUID()}`);
 
   const InjectAbleStorage = reflectFactory<true | Function>(`injectable-${name}`);
 

@@ -2,8 +2,8 @@
   "private": true,
   "readme": "./main/README.md",
   "scripts": {
-    "build": "turbo -F ts-dependency-injector build",
-    "publish": "pnpm lint && pnpm type-check && pnpm build && cd main && npm publish",
+    "build": "turbo -F flex-injector build",
+    "publish:main": "pnpm lint && pnpm type-check && pnpm build && cd main && npm publish",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "type-check": "turbo type-check",

@@ -1,5 +1,5 @@
 {
-  "name": "ts-dependency-injector",
+  "name": "flex-injector",
   "private": false,
   "version": "0.0.1",
   "description": "A simple dependency injection library for TypeScript. Uses class decorators to inject dependencies, detects circular dependencies, and manages dependencies.",
@@ -8,7 +8,7 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/cgoinglove/ts-dependency-injector"
+    "url": "https://github.com/cgoinglove/flex-injector"
   },
   "keywords": [
     "typescript",

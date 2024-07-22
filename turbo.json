@@ -12,7 +12,7 @@
     "format": {},
     "type-check": {},
     "test": {
-      "dependsOn": ["build:ts-dependency-injector"],
+      "dependsOn": ["build:flex-injector"],
       "inputs": ["**/*.test.ts", "**/*.test.tsx", "vitest.config.ts"]
     },
     "dev": {
@@ -20,5 +20,5 @@
       "persistent": true
     }
   },
-  "globalDependencies": ["ts-dependency-injector"]
+  "globalDependencies": ["flex-injector"]
 }
