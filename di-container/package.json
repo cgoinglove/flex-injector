@@ -3,19 +3,31 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/cjs/index.d.ts"
+    },
+    "./package.json": "./package.json"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "lint": "eslint src/ --max-warnings 0",
     "test:watch": "vitest",
     "test": "vitest run",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "build:esm": "tsc --project tsconfig.esm.json",
+    "build": "npm run build:cjs && npm run build:esm"
   },
-  "dependencies": {
-    "reflect-metadata": "^0.2.2"
+  "peerDependencies": {
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
+    "reflect-metadata": "^0.2.2",
     "@shared/eslint-config": "workspace:*",
     "@shared/typescript-config": "workspace:*",
     "prettier": "^3.2.5",

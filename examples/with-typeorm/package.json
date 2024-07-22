@@ -1,5 +1,5 @@
 {
-  "name": "@examples/with-typeorm-service",
+  "name": "@examples/with-typeorm",
   "version": "0.0.0",
   "private": true,
   "exports": {

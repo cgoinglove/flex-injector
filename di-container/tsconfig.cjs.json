@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.esm.json",
+  "include": ["src"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "module": "CommonJS",
+    "outDir": "./dist/cjs",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "allowImportingTsExtensions": false
+  }
+}

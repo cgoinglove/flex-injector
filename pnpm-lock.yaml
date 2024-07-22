@@ -95,6 +95,10 @@ importers:
         specifier: ^1.5.0
         version: 1.6.0(@types/node@20.14.11)
 
+  examples/with-json-db: {}
+
+  examples/with-monorepo: {}
+
   examples/with-typeorm:
     dependencies:
       di-container:
@@ -194,6 +198,8 @@ importers:
       typescript:
         specifier: ^5.3.3
         version: 5.5.3
+
+  shared/util: {}
 
 packages:
 

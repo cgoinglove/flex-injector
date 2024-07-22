@@ -1,9 +1,9 @@
-import 'reflect-metadata';
 import { reflectFactory } from './reflect-factory';
+import { randomUUID } from 'crypto';
 
 type Class<T = any> = { new (...args: any[]): T };
 
-export const createInjector = (name: string = crypto.randomUUID()) => {
+export const createInjector = (name: string = randomUUID()) => {
   const Container = reflectFactory(`dependency-container-${name}`);
 
   const InjectAbleStorage = reflectFactory<true | Function>(
@@ -26,6 +26,7 @@ export const createInjector = (name: string = crypto.randomUUID()) => {
     if (!Container.has(Target)) {
       currentlyInjecting.add(Target);
       const dependencies: Class[] =
+        // @ts-ignore
         Reflect.getMetadata('design:paramtypes', Target) || [];
 
       // If Object is detected in dependencies, it might indicate a circular dependency due to TS limitations
