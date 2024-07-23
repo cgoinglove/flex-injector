@@ -1,6 +1,6 @@
 # Flex-Injector
 
-[![npm version](https://badge.fury.io/js/flex-injector.svg)](https://badge.fury.io/js/flex-injector)
+[![npm version](https://badge.fury.io/js/flex-injector.svg)](https://badge.fury.io/js/flex-injector) [![Downloads](https://img.shields.io/npm/dt/flex-injector.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/flex-injector)
 
 English | [한국어](./docs/lang/kr.md)
 
@@ -101,6 +101,7 @@ app.get('/todo', async (req, res) => {
 <br/>
 
 #### ❌ Bad Case
+
 ```typescript
 //  Beware of circular reference errors. Below is a bad example where circular references occur.
 
