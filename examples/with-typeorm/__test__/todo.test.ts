@@ -1,4 +1,4 @@
-import { suite, expect, test, beforeAll } from 'vitest';
+import { suite, expect, it, beforeAll } from 'vitest';
 import { TodoService } from '../src/domain/todo/todo.service';
 import { type Todo } from '../src/domain/todo/todo.entity';
 import { inject } from '../src';
@@ -6,16 +6,19 @@ import { AppDataSource } from '../src/orm-config';
 
 const todoService = inject(TodoService);
 
+let condition = false;
+
 beforeAll(async () => {
-  /**
-   * If you have correctly configured the database connection information in 'packages/typeorm-service/src/orm-config.ts',
-   * remove this skipIf statement and run the tests.
-   */
-  await AppDataSource.initialize();
+  await AppDataSource.initialize().catch(e => {
+    console.warn(e);
+    condition = true;
+  });
 });
 
 suite('Todo', () => {
   let id: Todo['id'];
+
+  const test = it.skipIf(condition);
 
   test('Insert', async () => {
     console.log(`insert`);

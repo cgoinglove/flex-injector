@@ -3,16 +3,23 @@ import { randomUUID } from 'crypto';
 
 type Class<T = any> = { new (...args: any[]): T };
 
-export const createInjector = (name = '') => {
-  const Container = reflectFactory(`dependency-container-${name}-${randomUUID()}`);
+type Option = {
+  name: string;
+};
 
-  const InjectAbleStorage = reflectFactory<true | Function>(`injectable-${name}`);
+export const createInjector = (option?: Partial<Option>) => {
+  const NAME = `${option?.name || 'dependency-container'}-${randomUUID()}`;
+
+  const Container = reflectFactory(NAME);
+
+  const InjectAbleStorage = reflectFactory<true>(`injectable-${NAME}`);
 
   const currentlyInjecting = new Set<Class>();
 
   const InjectAble = (clazz: Class) => {
     InjectAbleStorage.set(clazz, true);
   };
+
   const inject = <T>(Target: Class<T>): T => {
     if (!InjectAbleStorage.has(Target)) throw new Error(`${Target || 'Target'} is not injectable`);
 

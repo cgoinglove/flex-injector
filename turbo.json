@@ -12,13 +12,11 @@
     "format": {},
     "type-check": {},
     "test": {
-      "dependsOn": ["build:flex-injector"],
-      "inputs": ["**/*.test.ts", "**/*.test.tsx", "vitest.config.ts"]
+      "inputs": ["**/*.test.ts", "**/*.test.tsx", "vitest.config.ts", "*.test.ts"]
     },
     "dev": {
       "cache": false,
       "persistent": true
     }
-  },
-  "globalDependencies": ["flex-injector"]
+  }
 }

@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { createInjector } from 'flex-injector';
+import { createInjector } from 'main';
 
 const { InjectAble, inject } = createInjector();
 export { InjectAble, inject };

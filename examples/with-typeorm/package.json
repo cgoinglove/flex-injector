@@ -14,7 +14,7 @@
   "dependencies": {
     "mysql2": "^3.9.7",
     "typeorm": "^0.3.20",
-    "flex-injector": "workspace:*",
+    "main": "workspace:*",
     "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {

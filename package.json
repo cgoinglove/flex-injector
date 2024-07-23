@@ -1,12 +1,49 @@
 {
-  "private": true,
-  "readme": "./main/README.md",
+  "name": "flex-injector",
+  "private": false,
+  "version": "0.0.2",
+  "description": "A simple dependency injection library for TypeScript. Uses class decorators to inject dependencies, detects circular dependencies, and manages dependencies.",
+  "author": "Cgoing",
+  "license": "MIT",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cgoinglove/flex-injector"
+  },
+  "keywords": [
+    "typescript",
+    "dependency-injection",
+    "di",
+    "injection",
+    "injector",
+    "class-decorator",
+    "decorators",
+    "reflect-metadata",
+    "ioc",
+    "dependency-management"
+  ],
+  "exports": {
+    ".": {
+      "import": "./main/dist/esm/index.js",
+      "require": "./main/dist/cjs/index.js",
+      "types": "./main/dist/types/index.d.ts"
+    },
+    "./package.json": "./main/package.json"
+  },
+  "files": [
+    "./main/dist/**/*"
+  ],
+  "peerDependencies": {
+    "reflect-metadata": "^0.1.13"
+  },
   "scripts": {
-    "build": "turbo -F flex-injector build",
-    "publish:main": "pnpm lint && pnpm type-check && pnpm build && cd main && npm publish",
+    "build:main": "turbo -F main build",
+    "publish:main": "pnpm lint && pnpm type-check && pnpm build:main && npm publish",
     "dev": "turbo dev",
+    "build": "turbo build",
     "lint": "turbo lint",
     "type-check": "turbo type-check",
+    "lint-staged": "lint-staged",
     "prepare": "husky install",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "docker:mysql": "docker-compose -f ./docker/mysql/docker-compose.yml up -d",
@@ -24,11 +61,9 @@
   "engines": {
     "node": ">=18"
   },
-  "name": "root",
   "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "prettier --write",
-      "eslint --max-warnings 0"
+    "*.{ts,tsx}": [
+      "prettier --write"
     ]
   }
 }
