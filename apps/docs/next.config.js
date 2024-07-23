@@ -2,6 +2,6 @@
 module.exports = {
   transpilePackages: ["@shared/ui"],
   experimental: {
-    serverComponentsExternalPackages: ["typeorm","@medusajs/medusa"],
+    serverComponentsExternalPackages: ["@medusajs/medusa"],
   },
 };

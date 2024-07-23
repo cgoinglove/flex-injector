@@ -115,7 +115,7 @@ class B {
 }
 
 const injector = createInjector();
-const a = injector.inject(A); // Throw Circular dependency detected
+const a = inject(A); // Throw Circular dependency detected
 ```
 
 
@@ -126,5 +126,5 @@ const a = injector.inject(A); // Throw Circular dependency detected
 > 
 > - **[With next](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-next)**
 > - **[With monorepo](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-monorepo)**
-> - **[With type-orm](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-typeorm)**
+> - **[With type-orm](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-type-orm)**
 
