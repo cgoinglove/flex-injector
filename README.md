@@ -13,13 +13,13 @@ Using `createInjector`, you can create **multiple injectors and inject dependenc
 1. Install module:
 
 ```bash
-    npm install flex-injector
+npm install flex-injector
 ```
 
 2. Install peer dependencies:
 
 ```bash
-    npm install reflect-metadata
+npm install reflect-metadata
 ```
 
 3. tsconfig.json compilerOptions :
@@ -98,11 +98,12 @@ app.get('/todo', async (req, res) => {
 });
 ```
 
+<br/>
 
-
-❌ Beware of circular reference errors. Below is a bad example where circular references occur.
-
+#### ❌ Bad Case
 ```typescript
+//  Beware of circular reference errors. Below is a bad example where circular references occur.
+
 import { InjectAble, inject } from './injector';
 
 @InjectAble
@@ -117,10 +118,7 @@ class B {
 
 const injector = createInjector();
 const a = injector.inject(A); // Throw Circular dependency detected
-
 ```
-
-
 
 ## More examples
 

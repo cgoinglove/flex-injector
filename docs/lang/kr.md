@@ -11,13 +11,13 @@ createInjector를 사용하여 **여러 개의 인젝터를 생성하고, 이를
 1. 모듈 설치:
 
 ```bash
-    npm install flex-injector
+npm install flex-injector
 ```
 
 2. 피어 종속성 설치:
 
 ```bash
-    npm install reflect-metadata
+npm install reflect-metadata
 ```
 
 3. tsconfig.json compilerOptions :
@@ -96,9 +96,12 @@ app.get('/todo', async (req, res) => {
 });
 ```
 
-❌ 순환 참조 에러에 주의하세요. 아래는 순환 참조가 발생하는 나쁜 예시입니다.
+<br/>
 
+#### ❌ Bad Case
 ```typescript
+// 순환 참조 에러에 주의하세요. 아래는 순환 참조가 발생하는 나쁜 예시입니다.
+
 import { InjectAble, inject } from './injector';
 
 @InjectAble
@@ -113,7 +116,6 @@ class B {
 
 const injector = createInjector();
 const a = injector.inject(A); // Throw Circular dependency detected
-
 ```
 
 
