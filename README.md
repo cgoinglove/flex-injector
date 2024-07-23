@@ -1,36 +1,130 @@
-# Typescript DI Container
+# Flex-Injector
+
+[![npm version](https://badge.fury.io/js/flex-injector.svg)](https://badge.fury.io/js/flex-injector)
+
+English | [한국어](./docs/lang/kr.md)
+
+Flex-Injector is a **library that makes dependency injection easy**. This library utilizes TypeScript's decorator feature to manage dependencies in a simple and clear way.
+
+Using `createInjector`, you can create **multiple injectors and inject dependencies through different containers**. This is particularly useful in a `monorepo` environment. Each package or module can use an independent injector, making dependency management more efficient and clear.
+
+## Installation
+
+1. Install module:
+
+```bash
+    npm install flex-injector
+```
+
+2. Install peer dependencies:
+
+```bash
+    npm install reflect-metadata
+```
+
+3. tsconfig.json compilerOptions :
+
+```json
+{
+  "emitDecoratorMetadata": true,
+  "experimentalDecorators": true
+}
+```
+
+## Example of usage
+
+```
+./service
+├── todo.service.ts
+├── user.service.ts
+└── injector.ts
+```
 
 ```typescript
-const { inject, InjectAble } = createInjector();
+//  ./service/injector.ts
+
+import { createInjector } from 'flex-injector';
+
+const { InjectAble, inject } = createInjector();
+
+export { InjectAble, inject };
+```
+
+```typescript
+
+//  ./service/todo.service.ts
+
+import { InjectAble } from './injector';
 
 @InjectAble
-class TodoService {
-  getTodo() {
-    return 'Coding';
+export class TodoService {
+
+  async getTodo(userId:string) {
+    return ...;
   }
 }
+```
+
+```typescript
+
+//  ./service/user.service.ts
+
+import { InjectAble } from './injector';
 
 @InjectAble
-class UserService {
+export class UserService {
+
   constructor(private todoService: TodoService) {}
 
-  getUser() {
-    return { id: 1, name: 'John Doe' };
+
+  async getTodo(userId:string) {
+    return this.todoService.getTodo(userId);
   }
 
-  getTodo() {
-    return this.todoService.getTodo();
+  async find(userId:string) {
+    return ...;
   }
 }
+```
 
-it('should return user information', () => {
-  const userService = inject(UserService);
-  expect(userService.getUser()).toEqual({ id: 1, name: 'John Doe' });
-});
+```typescript
+// express server example
 
-it('should return todo from TodoService', () => {
-  const userService = inject(UserService);
-  const todoService = inject(TodoService);
-  expect(userService.getTodo()).toBe(todoService.getTodo());
+const userService = inject(UserService);
+
+app.get('/todo', async (req, res) => {
+  const todoList = await userService.getTodo(req.session.userId);
+  res.json(todoList);
 });
 ```
+
+
+
+❌ Beware of circular reference errors. Below is a bad example where circular references occur.
+
+```typescript
+import { InjectAble, inject } from './injector';
+
+@InjectAble
+class A {
+  constructor(private b: B) {}
+}
+
+@InjectAble
+class B {
+  constructor(private a: A) {}
+}
+
+const injector = createInjector();
+const a = injector.inject(A); // Throw Circular dependency detected
+
+```
+
+
+
+## More examples
+
+> - **[With express](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-express)**
+> - **[With next](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-next)**
+> - **[With monorepo](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-monorepo)**
+> - **[With type-orm](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-typeorm)**
