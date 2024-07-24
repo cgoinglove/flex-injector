@@ -105,7 +105,7 @@ app.get('/todo', async (req, res) => {
 ```typescript
 //  Beware of circular reference errors. Below is a bad example where circular references occur.
 
-const {inject,InjectAble} = createInjector();
+const { inject, InjectAble } = createInjector();
 
 @InjectAble
 class A {
@@ -117,14 +117,12 @@ class B {
   constructor(private a: A) {}
 }
 
-
 const a = inject(A); // Throw Circular dependency detected
 ```
 
 ## More examples
 
-
 > - **[✅ With next](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-next)**
 > - **[✅ With type-orm](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-type-orm)**
-> - **[🛠️ With express](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-express)**
+> - **[✅ With express](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-express)**
 > - **[🛠️ With monorepo](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-monorepo)**

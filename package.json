@@ -26,7 +26,8 @@
     ".": {
       "import": "./main/dist/esm/index.js",
       "require": "./main/dist/cjs/index.js",
-      "types": "./main/dist/types/index.d.ts"
+      "types": "./main/dist/types/index.d.ts",
+      "default": "./main/dist/cjs/index.js"
     },
     "./package.json": "./main/package.json"
   },

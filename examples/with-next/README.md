@@ -7,14 +7,16 @@ This project is an example of using [flex-injector](https://github.com/cgoinglov
 0. Install Next App
 
 ```bash
-npx create-next-app@latest 
+npx create-next-app@latest
 # cd app dir
 ```
 
 1. Install module:
+
 ```bash
 npm install flex-injector
 ```
+
 2. Install peer dependencies:
 
 ```bash
@@ -30,7 +32,26 @@ npm install reflect-metadata
 }
 ```
 
-## Example Code 
+## Project Structure
+
+```bash
+├── app
+│   ├── api
+│   │   └── content
+│   │       └── route.ts
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── boot.ts
+├── injector.ts
+└── service
+    ├── command.service.ts
+    ├── mock-database-repository.ts
+    └── query.service.ts
+```
+
+## Example Code
 
 ```typescript
 // app/page.tsx
@@ -82,7 +103,6 @@ export async function POST(req: Request) {
 
   return Response.json({ status: 200 });
 }
-
 ```
 
 You can find the complete example code in the repository.
