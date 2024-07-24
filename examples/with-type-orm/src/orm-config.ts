@@ -6,7 +6,7 @@ import { User } from './domain/user/user.entity';
 export const AppDataSource = new DataSource({
   type: 'sqljs',
   synchronize: true,
-  logging: true,
+  // logging: process.env.NODE_ENV != 'test',
   autoSave: false,
   dropSchema: true,
   entities: [Todo, User],

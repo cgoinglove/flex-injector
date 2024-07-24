@@ -1,4 +1,4 @@
-import { InjectAble } from '@/injector';
+import { InjectAble } from './injector';
 import { randomUUID } from 'crypto';
 
 export type Data = {
@@ -20,7 +20,7 @@ export class MockRepository {
   }
 
   select(id?: Data['id']) {
-    if (id != undefined) return this.findById(id);
+    if (id != undefined) return [this.findById(id)].filter(Boolean);
     return table;
   }
   delete(id: Data['id']) {

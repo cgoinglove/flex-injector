@@ -6,6 +6,12 @@ Flex-Injector는 **의존성 주입을 간편하게 할 수 있도록 돕는 라
 
 createInjector를 사용하여 **여러 개의 인젝터를 생성하고, 이를 통해 서로 다른 컨테이너로 의존성을 주입**할 수 있습니다. 이는 특히 `monorepo` 환경에서 매우 유용합니다. 각 패키지나 모듈별로 독립적인 인젝터를 사용할 수 있어, 의존성 관리가 더욱 효율적이고 명확해집니다.
 
+- [Flex-Injector](#flex-injector)
+  - [설치](#설치)
+  - [사용 예](#사용-예)
+    - [❌ Bad Case](#-bad-case)
+  - [더 많은 예](#더-많은-예)
+
 ## 설치
 
 1. 모듈 설치:
@@ -122,5 +128,6 @@ const a = inject(A); // Throw Circular dependency detected
 
 > - **[✅ With next](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-next)**
 > - **[✅ With type-orm](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-type-orm)**
-> - **[🛠️ With express](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-express)**
-> - **[🛠️ With monorepo](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-monorepo)**
+> - **[✅ With express](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-express)**
+> - **[✅ With monorepo](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-monorepo)**
+> - **[🛠️ With client side](#)**

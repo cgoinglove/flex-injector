@@ -8,6 +8,12 @@ Flex-Injector is a **library that makes dependency injection easy**. This librar
 
 Using `createInjector`, you can create **multiple injectors and inject dependencies through different containers**. This is particularly useful in a `monorepo` environment. Each package or module can use an independent injector, making dependency management more efficient and clear.
 
+- [Flex-Injector](#flex-injector)
+  - [Installation](#installation)
+  - [Example of usage](#example-of-usage)
+    - [❌ Bad Case](#-bad-case)
+  - [More examples](#more-examples)
+
 ## Installation
 
 1. Install module:
@@ -125,4 +131,5 @@ const a = inject(A); // Throw Circular dependency detected
 > - **[✅ With next](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-next)**
 > - **[✅ With type-orm](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-type-orm)**
 > - **[✅ With express](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-express)**
-> - **[🛠️ With monorepo](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-monorepo)**
+> - **[✅ With monorepo](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-monorepo)**
+> - **[🛠️ With client side](#)**
