@@ -1,5 +1,7 @@
 # Example with-type-orm
 
+This project is an example of using [flex-injector](https://github.com/cgoinglove/flex-injector) combined with [typeorm](https://typeorm.io/).
+
 ## Installation
 
 1. Install module:

@@ -99,6 +99,7 @@ app.get('/todo', async (req, res) => {
 <br/>
 
 #### ❌ Bad Case
+
 ```typescript
 // 순환 참조 에러에 주의하세요. 아래는 순환 참조가 발생하는 나쁜 예시입니다.
 
@@ -118,13 +119,9 @@ const injector = createInjector();
 const a = inject(A); // Throw Circular dependency detected
 ```
 
-
-
 ## 더 많은 예
 
-> - **[With express](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-express)**
-> 
-> - **[With next](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-next)**
-> - **[With monorepo](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-monorepo)**
-> - **[With type-orm](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-type-orm)**
-
+> - **[✅ With next](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-next)**
+> - **[✅ With type-orm](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-type-orm)**
+> - **[🛠️ With express](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-express)**
+> - **[🛠️ With monorepo](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-monorepo)**

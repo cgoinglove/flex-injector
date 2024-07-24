@@ -2,9 +2,6 @@
   "name": "@examples/with-type-orm",
   "version": "0.0.0",
   "private": true,
-  "exports": {
-    ".": "./src/index.ts"
-  },
   "scripts": {
     "lint": "eslint src/ --max-warnings 0",
     "test:watch": "vitest",
@@ -12,14 +9,12 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "main": "workspace:*",
+    "flex-injector": "^0.0.3",
     "reflect-metadata": "^0.2.2",
     "sql.js": "^1.10.3",
     "typeorm": "^0.3.20"
   },
   "devDependencies": {
-    "@shared/eslint-config": "workspace:*",
-    "@shared/typescript-config": "workspace:*",
     "@types/node": "^20.11.24",
     "eslint": "^8.57.0",
     "typescript": "^5.3.3",

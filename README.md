@@ -123,7 +123,8 @@ const a = inject(A); // Throw Circular dependency detected
 
 ## More examples
 
-> - **[With express](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-express)**
-> - **[With next](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-next)**
-> - **[With monorepo](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-monorepo)**
-> - **[With type-orm](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-type-orm)**
+
+> - **[✅ With next](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-next)**
+> - **[✅ With type-orm](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-type-orm)**
+> - **[🛠️ With express](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-express)**
+> - **[🛠️ With monorepo](https://github.com/cgoinglove/flex-injector/tree/main/examples/with-monorepo)**

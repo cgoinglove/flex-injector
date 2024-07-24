@@ -1,5 +1,6 @@
 module.exports = {
-  extends: ["@shared/eslint-config/library.js"],
+  extends: ["eslint:recommended"],
+  plugins: ["only-warn"],
   parser: "@typescript-eslint/parser",
   env: {
     es6: true,
@@ -8,7 +9,6 @@ module.exports = {
   parserOptions: {
     project: true,
     ecmaVersion: 2020,
-
   },
   rules: {
     "@typescript-eslint/no-explicit-any": "off",
