@@ -105,7 +105,7 @@ app.get('/todo', async (req, res) => {
 ```typescript
 //  Beware of circular reference errors. Below is a bad example where circular references occur.
 
-import { InjectAble, inject } from './injector';
+const {inject,InjectAble} = createInjector();
 
 @InjectAble
 class A {
@@ -117,7 +117,7 @@ class B {
   constructor(private a: A) {}
 }
 
-const injector = createInjector();
+
 const a = inject(A); // Throw Circular dependency detected
 ```
 

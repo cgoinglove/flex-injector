@@ -103,7 +103,7 @@ app.get('/todo', async (req, res) => {
 ```typescript
 // 순환 참조 에러에 주의하세요. 아래는 순환 참조가 발생하는 나쁜 예시입니다.
 
-import { InjectAble, inject } from './injector';
+const { inject, InjectAble } = createInjector();
 
 @InjectAble
 class A {
@@ -115,7 +115,6 @@ class B {
   constructor(private a: A) {}
 }
 
-const injector = createInjector();
 const a = inject(A); // Throw Circular dependency detected
 ```
 
