@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { User } from '../user/user.entity';
 
 @Entity({
   name: 'todo',
@@ -19,6 +20,11 @@ export class Todo {
 
   @CreateDateColumn()
   createdAt: string;
+
+  @ManyToOne(() => User, user => user.todos, {
+    onDelete: 'CASCADE',
+  })
+  user: User;
 
   @UpdateDateColumn()
   updatedAt: string;

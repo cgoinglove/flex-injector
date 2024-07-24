@@ -1,14 +1,13 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import { Todo } from './domain/todo/todo.entity';
+import { User } from './domain/user/user.entity';
 
 export const AppDataSource = new DataSource({
-  type: 'mysql',
-  host: 'localhost',
-  port: 3306,
-  username: 'root',
-  database: 'root',
+  type: 'sqljs',
   synchronize: true,
   logging: true,
-  entities: [Todo],
+  autoSave: false,
+  dropSchema: true,
+  entities: [Todo, User],
 });

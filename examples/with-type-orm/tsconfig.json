@@ -1,5 +1,10 @@
 {
-  "extends": "@shared/typescript-config/service.json",
+  "extends": "@shared/typescript-config/base.json",
   "include": ["src", "__test__", "vitest.config.ts"],
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules"],
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true
+  }
 }

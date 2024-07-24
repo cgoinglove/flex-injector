@@ -46,7 +46,6 @@
     "lint-staged": "lint-staged",
     "prepare": "husky install",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "docker:mysql": "docker-compose -f ./docker/mysql/docker-compose.yml up -d",
     "clean": "node ./scripts/clean.js"
   },
   "devDependencies": {

@@ -12,18 +12,18 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "mysql2": "^3.9.7",
-    "typeorm": "^0.3.20",
     "main": "workspace:*",
-    "reflect-metadata": "^0.2.2"
+    "reflect-metadata": "^0.2.2",
+    "sql.js": "^1.10.3",
+    "typeorm": "^0.3.20"
   },
   "devDependencies": {
     "@shared/eslint-config": "workspace:*",
-    "unplugin-swc": "^1.4.5",
     "@shared/typescript-config": "workspace:*",
     "@types/node": "^20.11.24",
-    "typescript": "^5.3.3",
     "eslint": "^8.57.0",
+    "typescript": "^5.3.3",
+    "unplugin-swc": "^1.4.5",
     "vitest": "^1.5.0"
   }
 }

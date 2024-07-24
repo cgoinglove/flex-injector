@@ -1,60 +1,59 @@
-import { suite, expect, it, beforeAll } from 'vitest';
-import { TodoService } from '../src/domain/todo/todo.service';
-import { type Todo } from '../src/domain/todo/todo.entity';
-import { inject } from '../src';
+import { describe, it, expect, beforeAll } from 'vitest';
+import { UserService } from '../src/domain/user/user.service';
 import { AppDataSource } from '../src/orm-config';
+import { inject } from '../src/injector';
 
-const todoService = inject(TodoService);
+describe('UserService', () => {
+  let userService: UserService;
 
-let condition = false;
+  beforeAll(async () => {
+    await AppDataSource.initialize();
 
-beforeAll(async () => {
-  await AppDataSource.initialize().catch(e => {
-    console.warn(e);
-    condition = true;
-  });
-});
-
-suite('Todo', () => {
-  let id: Todo['id'];
-
-  const test = it.skipIf(condition);
-
-  test('Insert', async () => {
-    console.log(`insert`);
-    const newTodo = await todoService.add('Hello World');
-
-    id = newTodo.id;
-
-    expect(newTodo.complete).toBeFalsy();
+    userService = inject(UserService);
   });
 
-  test('Select', async () => {
-    const todo = await todoService.findById(id);
-    expect(todo?.content).toBe('Hello World');
+  it('should create a new user', async () => {
+    const user = await userService.createUser({ name: 'John Doe' });
+    expect(user).toHaveProperty('id');
+    expect(user.name).toBe('John Doe');
   });
 
-  test('Update', async () => {
-    await todoService.complete(id);
-
-    const todo = await todoService.findById(id);
-
-    expect(todo?.complete).toBeTruthy();
-  });
-  test('Delete', async () => {
-    await todoService.deleteById(id);
-
-    const todo = await todoService.findById(id);
-
-    expect(todo).toBeNull();
+  it('should get all users', async () => {
+    const users = await userService.getAllUsers();
+    expect(users.length).toBeGreaterThan(0);
   });
 
-  test.skip('Delete All', async () => {
-    const list = await todoService.findAll();
-    await Promise.all(list.map(todo => todoService.deleteById(todo.id)));
+  it('should create a new todo for a user', async () => {
+    const user = await userService.createUser({ name: 'Jane Doe' });
+    const todo = await userService.createTodoForUser(user.id, {
+      content: 'Finish homework',
+      complete: false,
+    });
+    expect(todo).toHaveProperty('id');
+    expect(todo.content).toBe('Finish homework');
+    expect(todo.user.id).toBe(user.id);
+  });
 
-    const newList = await todoService.findAll();
+  it('should get all todos for a user', async () => {
+    const user = await userService.createUser({ name: 'Mark Smith' });
+    await userService.createTodoForUser(user.id, {
+      content: 'Read a book',
+      complete: false,
+    });
+    const todos = await userService.getUserTodos(user.id);
+    expect(todos.length).toBeGreaterThan(0);
+  });
 
-    expect(newList.length).toBeFalsy();
+  it('should delete a user and their todos', async () => {
+    const user = await userService.createUser({ name: 'Anna Bell' });
+    await userService.createTodoForUser(user.id, {
+      content: 'Go shopping',
+      complete: false,
+    });
+    await userService.deleteUser(user.id);
+    const foundUser = await userService.getUserById(user.id);
+    const todos = await userService.getUserTodos(user.id);
+    expect(foundUser).toBeNull();
+    expect(todos.length).toBe(0);
   });
 });
