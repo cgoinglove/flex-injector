@@ -2,7 +2,10 @@
 
 This project is an example of using [flex-injector](https://github.com/cgoinglove/flex-injector) combined with [turborepo](https://turbo.build/repo/docs).
 
-Using `flex-injector`, you can separate service layers within a monorepo environment and create independent service packages. This approach not only allows you to inject and use only the necessary services in your application, but also helps manage dependencies at both the service and package levels. This provides developers with an experience similar to microservices architecture `(MSA)`, maximizing modular architecture and reusability.
+Using flex-injector, you can separate service layers within a monorepo environment and create independent service packages. This approach not only allows you to inject and use only the necessary services in your application, but also helps manage dependencies at both the service and package levels.
+
+For example, with service packages like User, Order, and Product, your application can install only the required packages and use separate injectors for each. **Additionally, the Order service package can install and use the User service package, providing a highly flexible service layer.**
+
 
 You can find the complete example code in the repository.
 
