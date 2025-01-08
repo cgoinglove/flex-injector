@@ -1,4 +1,4 @@
-# Example with-type-orm
+# Example with-next
 
 This project is an example of using [flex-injector](https://github.com/cgoinglove/flex-injector) combined with [next.js](https://nextjs.org/).
 
