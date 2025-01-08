@@ -1,7 +1,7 @@
 {
-  "name": "flex-injector",
+  "name": "root",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "A simple dependency injection library for TypeScript. Uses class decorators to inject dependencies, detects circular dependencies, and manages dependencies.",
   "author": "Cgoing",
   "license": "MIT",
@@ -39,7 +39,7 @@
   },
   "scripts": {
     "build:main": "turbo -F main build",
-    "publish:main": "pnpm lint && pnpm type-check && pnpm build:main && npm publish",
+    "publish:main": "turbo lint && turbo type-check && turbo test && node ./scripts/publish.js",
     "dev": "turbo dev",
     "build": "turbo build",
     "lint": "turbo lint",
