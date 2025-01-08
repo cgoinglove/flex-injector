@@ -12,7 +12,7 @@
     "react": "^18",
     "react-dom": "^18",
     "next": "14.2.5",
-    "flex-injector": "^0.0.3",
+    "flex-injector": "latest",
     "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {

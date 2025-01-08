@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "flex-injector": "^0.0.3",
+    "flex-injector": "latest",
     "reflect-metadata": "^0.2.2",
     "sql.js": "^1.10.3",
     "typeorm": "^0.3.20"

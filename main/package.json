@@ -1,8 +1,38 @@
 {
-  "name": "main",
-  "exports": {
-    ".": "./src/index.ts"
+  "name": "@main/flex-injector",
+  "private": false,
+  "version": "0.0.10",
+  "description": "A simple dependency injection library for TypeScript. Uses class decorators to inject dependencies, detects circular dependencies, and manages dependencies.",
+  "author": "Cgoing",
+  "license": "MIT",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cgoinglove/flex-injector"
   },
+  "keywords": [
+    "typescript",
+    "dependency-injection",
+    "di",
+    "injection",
+    "injector",
+    "class-decorator",
+    "decorators",
+    "reflect-metadata",
+    "ioc",
+    "dependency-management"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "./dist/**/*"
+  ],
   "scripts": {
     "lint": "eslint src/ --max-warnings 0",
     "test:watch": "vitest",

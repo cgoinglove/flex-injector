@@ -1,45 +1,8 @@
 {
   "name": "root",
-  "private": false,
-  "version": "0.0.6",
-  "description": "A simple dependency injection library for TypeScript. Uses class decorators to inject dependencies, detects circular dependencies, and manages dependencies.",
-  "author": "Cgoing",
-  "license": "MIT",
-  "sideEffects": false,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cgoinglove/flex-injector"
-  },
-  "keywords": [
-    "typescript",
-    "dependency-injection",
-    "di",
-    "injection",
-    "injector",
-    "class-decorator",
-    "decorators",
-    "reflect-metadata",
-    "ioc",
-    "dependency-management"
-  ],
-  "exports": {
-    ".": {
-      "import": "./main/dist/esm/index.js",
-      "require": "./main/dist/cjs/index.js",
-      "types": "./main/dist/types/index.d.ts",
-      "default": "./main/dist/cjs/index.js"
-    },
-    "./package.json": "./main/package.json"
-  },
-  "files": [
-    "./main/dist/**/*"
-  ],
-  "peerDependencies": {
-    "reflect-metadata": "^0.1.13"
-  },
   "scripts": {
-    "build:main": "turbo -F main build",
-    "publish:main": "turbo lint && turbo type-check && turbo test && node ./scripts/publish.js",
+    "build:main": "turbo -F @main/flex-injector build",
+    "publish:main": "pnpm build:main && turbo lint && turbo type-check && turbo test && node ./scripts/publish.js",
     "dev": "turbo dev",
     "build": "turbo build",
     "lint": "turbo lint",
