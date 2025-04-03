@@ -1,14 +1,21 @@
 import { reflectFactory } from './reflect-factory';
-import { randomUUID } from 'crypto';
 
-type Class<T = any> = { new (...args: any[]): T };
+export const randomId = () => {
+  return 'flex-injector-xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    const r = (Math.random() * 16) | 0;
+    const v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+};
+
+export type Class<T = any> = { new (...args: any[]): T };
 
 type Option = {
   name: string;
 };
 
 export const createInjector = (option?: Partial<Option>) => {
-  const NAME = `${option?.name || 'dependency-container'}-${randomUUID()}`;
+  const NAME = `${option?.name || 'dependency-container'}-${randomId()}`;
 
   const Container = reflectFactory(NAME);
 
