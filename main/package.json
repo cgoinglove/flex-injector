@@ -1,7 +1,7 @@
 {
   "name": "@main/flex-injector",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple dependency injection library for TypeScript. Uses class decorators to inject dependencies, detects circular dependencies, and manages dependencies.",
   "author": "Cgoing",
   "license": "MIT",

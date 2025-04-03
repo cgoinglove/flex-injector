@@ -1,1 +1,1 @@
-export { createInjector } from './create-injector';
+export { type Class, createInjector } from './create-injector';
